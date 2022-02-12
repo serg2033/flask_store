@@ -1,0 +1,58 @@
+<style>
+    .modal-content {
+        background-color: #212121
+    }
+</style>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal-{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ item.name }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        {{ item.description }}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2-{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ item.name }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form method="POST">
+                {{ buy_form.hidden_tag() }}
+                <h4 class="text-center">
+                    Are you shure want to buy {{ item.name }} for ${{ item.price }} ?
+                </h4>
+                <br>
+                <h6 class="text-center">
+                    By clicking Buy, you will buy this item.
+                </h6>
+                <br>
+                <input id="buy_item" name="buy_item" type="hidden" value="{{ item.name }}">
+                {{ buy_form.submit(class="btn btn-outline-success btn-block") }}
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+      
+  
