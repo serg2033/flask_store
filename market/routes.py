@@ -1,5 +1,5 @@
 from market import app
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash, get_flashed_messages
 from market.models import Item, User
 from market.forms import RegisterForm
 from market import db
@@ -31,5 +31,5 @@ def register():
         return redirect(url_for('market'))
     if form.errors != {}: # если нет ошибок из валидации формы
         for err_msg in form.errors.values():
-            print(f'Error: {err_msg}')
+            flash(f'-----Error------: {err_msg}', category='danger')
     return render_template("register.html", form=form)
